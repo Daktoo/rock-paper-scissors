@@ -20,12 +20,12 @@ def farewell():
     print("-------------------------------------------------------------")
 
 def computer_chooses():
-    return random.choice(['rock', 'paper', 'scissors'])
+    return random.choice(['rock', 'paper', 'scissors', 'shoot'])
 
 def user_chooses():
-    choice = input("Rock, Paper, or Scissors?: ").strip().lower()
-    while choice not in ['rock', 'paper', 'scissors']:
-        choice = input("Invalid choice. Please enter rock, paper, or scissors: ").strip().lower()
+    choice = input("Rock, Paper, Scissors or Shoot?: ").strip().lower()
+    while choice not in ['rock', 'paper', 'scissors', 'shoot']:
+        choice = input("Invalid choice. Please enter rock, paper, scissors or shoot: ").strip().lower()
     return choice
 
 def who_wins(user_choice, computer_choice):
@@ -33,7 +33,9 @@ def who_wins(user_choice, computer_choice):
         return "tie"
     elif (user_choice == 'rock' and computer_choice == 'scissors') or \
          (user_choice == 'paper' and computer_choice == 'rock') or \
-         (user_choice == 'scissors' and computer_choice == 'paper'):
+         (user_choice == 'scissors' and computer_choice == 'paper') or \
+         (user_choice == 'shoot' and computer_choice == 'paper') or \
+         (user_choice == 'shoot' and computer_choice == 'scissors'):
         return "win"
     else:
         return "lose"
@@ -43,7 +45,7 @@ def play_game():
     rounds = 20
 
     for round_num in range(1, rounds + 1):
-        print(f"\n--- Round {round_num} ---")
+        print(f"\nRound {round_num}")
         user_choice = user_chooses()
         computer_choice = computer_chooses()
         print(f"Computer chose: {computer_choice}")
