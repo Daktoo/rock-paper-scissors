@@ -1,6 +1,6 @@
 echo "Creating directory..."
 sleep 1
-mkdir ~/RPS
+mkdir ~/RPS || echo "Failed to create directory. It may already exist." && exit 1
 echo "Directory created at ~/RPS"
 sleep 0.5
 echo "Downloading python script..."
